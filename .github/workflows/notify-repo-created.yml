@@ -1,0 +1,33 @@
+name: notify-repo-created
+run-name: ${{ github.actor }} has created a Naming Authority repository
+on: create
+jobs:
+  notify:
+    name: Notify that a Naming Authority repo has been created
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send mail
+        # Define the following secrets for the repository: EMAIL_SERVER, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_TO, EMAIL_LIST
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+          # mail server settings
+          server_address: ${{ secrets.EMAIL_SERVER }}
+          server_port: 465
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # email subject
+          subject: ${{ steps.date.outputs.date }} ${{ github.repository }} repository created
+          # email body as text
+          body: |
+            repo: ${{ github.repository }}
+            action triggered by: ${{ github.actor }}
+            event: ${{github.event_name}}
+            commit message: ${{github.event.head_commit.message}}
+
+            NOTE: This e-mail may have been generated for a new branch or tag
+          # comma-separated string, send email to
+          to: ${{ secrets.TESTING_EMAIL_LIST }}
+          # from email name
+          from: HPDE Mailer
