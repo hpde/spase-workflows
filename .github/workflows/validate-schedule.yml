@@ -4,9 +4,9 @@ name: SPASE Monthly Errors Only Validation
 
 # Controls when the action will run. 
 # Use cron to run on the first of the month.
-on:
-  schedule:
-    - cron: "0 0 1 * *"
+on: workflow_call
+#  schedule:
+#    - cron: "0 0 1 * *"
 # Triggers the workflow on push
 # on: push
 #  push:
