@@ -1,6 +1,6 @@
 name: notify-repo-created
 run-name: ${{ github.actor }} has created a Naming Authority repository
-on: create
+on: workflow_call
 jobs:
   notify:
     name: Notify that a Naming Authority repo has been created
