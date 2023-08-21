@@ -1,6 +1,7 @@
 name: Manual delete workflow runs
 on:
-  workflow_dispatch:
+#  workflow_dispatch:
+  workflow_call:
     inputs:
       days:
         description: 'Number of days.'
