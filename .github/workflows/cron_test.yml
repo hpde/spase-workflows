@@ -32,8 +32,7 @@ jobs:
           # email subject
           subject: ${{ steps.date.outputs.date }} ${{ github.repository }} cron test
           # email body as text
-          body: |
-          test!
+          body: test!!
           # comma-separated string, send email to
           to: ${{ secrets.TESTING_EMAIL_LIST }},${{ secrets.EMAIL_TO }}
           # from email name
