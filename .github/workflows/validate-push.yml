@@ -133,6 +133,6 @@ jobs:
             Added+Modified:
             ${{ steps.changed.outputs.added_modified }}
           # comma-separated string, send email to
-          to: ${{ secrets.TESTING_EMAIL_LIST }},${{ secrets.EMAIL_TO }}
+          to: ${{ secrets.EMAIL_LIST }},${{ secrets.EMAIL_TO }}
           # from email name
           from: HPDE Mailer
