@@ -28,6 +28,6 @@ jobs:
 
             NOTE: This e-mail may have been generated for a new branch or tag
           # comma-separated string, send email to
-          to: ${{ secrets.TESTING_EMAIL_LIST }}
+          to: ${{ secrets.EMAIL_LIST }}
           # from email name
           from: HPDE Mailer
